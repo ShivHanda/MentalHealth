@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Virtual Friend</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #message-input {
+      width: 80%;
+      margin: 20px auto;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #submit-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #message-list {
+      list-style: none;
+      padding: 0;
+    }
+    .message {
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Your Virtual Friend!</h1>
+  
+  <input type="text" id="message-input" placeholder="Write anything...">
+  <button id="submit-btn">Submit</button>
+  
+  <ul id="message-list"></ul>
+  
+  <script>
+    document.getElementById('submit-btn').addEventListener('click', function() {
+      var messageInput = document.getElementById('message-input');
+      var message = messageInput.value.trim();
+      if (message !== '') {
+        addMessage(message);
+        messageInput.value = '';
+      }
+    });
+    
+    function addMessage(message) {
+      var messageList = document.getElementById('message-list');
+      var listItem = document.createElement('li');
+      listItem.className = 'message';
+      listItem.textContent = message;
+      messageList.appendChild(listItem);
+    }
+  </script>
+</body>
+</html>
